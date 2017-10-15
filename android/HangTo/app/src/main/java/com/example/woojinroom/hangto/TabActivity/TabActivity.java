@@ -3,6 +3,8 @@ package com.example.woojinroom.hangto.TabActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -11,6 +13,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
+import com.example.woojinroom.hangto.searchActivity;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -40,9 +43,9 @@ public class TabActivity extends AppCompatActivity {
 
         // Create items
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.drawable.icon_recommand, R.color.colorBottomTabBackGround);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.icon_feed, R.color.colorBottomTabBackGround);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.drawable.icon_explore, R.color.colorBottomTabBackGround);
 //        AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_3, R.drawable.timeline, R.color.colorBottomTabBackGround);
-        AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.tab_4, R.drawable.icon_explore, R.color.colorBottomTabBackGround);
+        AHBottomNavigationItem item4 = new AHBottomNavigationItem(R.string.tab_4, R.drawable.icon_feed, R.color.colorBottomTabBackGround);
         AHBottomNavigationItem item5 = new AHBottomNavigationItem(R.string.tab_5, R.drawable.icon_mypage, R.color.colorBottomTabBackGround);
 
         // Add items
@@ -90,10 +93,12 @@ public class TabActivity extends AppCompatActivity {
             }
         });
 
+
         viewPager.setOffscreenPageLimit(3);
         adapter = new BottomTabPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         currentFragment = adapter.getCurrentFragment();
+
     }
 
     @Background

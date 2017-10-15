@@ -1,5 +1,6 @@
 package com.example.woojinroom.hangto.TabActivity.Tab2Feeds;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,24 +9,29 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
 import com.example.woojinroom.hangto.TabActivity.TabActivity;
+import com.example.woojinroom.hangto.writeActivity;
 
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
 public class Tab2FeedsFragment extends TabParentFragment {
     TabActivity activity;
+    Button button_messagebox;
+    Button button_alarmbox;
 
     public Tab2FeedsAdapter adapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     public LinearLayout indicator;
     public int page = 1;
+    public static int status =0;
     public boolean endOfPage = false;
     SwipeRefreshLayout pullToRefresh;
 
@@ -44,7 +50,7 @@ public class Tab2FeedsFragment extends TabParentFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feeds, container, false);
-//        initViewSetting(view);
+        initViewSetting(view);
         return view;
     }
 
@@ -70,15 +76,29 @@ public class Tab2FeedsFragment extends TabParentFragment {
         recyclerView.setAdapter(adapter);
 
         //indicator = (LinearLayout)view.findViewById(R.id.indicator);
-       // pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
-/*        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
+      pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 pullToRefresh.setRefreshing(false);
                 refresh();
             }
-        });*/
+        });
 
+     button_messagebox = (Button)view.findViewById(R.id.button_message);
+        button_messagebox.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                status =0;
+                refresh();
+            }
+        });
+        button_alarmbox = (Button)view.findViewById(R.id.button_alarm);
+        button_alarmbox.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                status =1;
+                refresh();
+            }
+        });
         connectFeed();
     }
 
@@ -97,8 +117,14 @@ public class Tab2FeedsFragment extends TabParentFragment {
     }
 
     void connectFeed() {
-        for (int i=0; i<10; i++)
-            adapter.addData(Food.mockFood(i));
-        adapter.notifyDataSetChanged();
+        if(status==0) {
+            for (int i = 0; i < 10; i++)
+                adapter.addData(Food.mockFood(i));
+            adapter.notifyDataSetChanged();
+        } else {
+            for (int i = 0; i < 10; i++)
+                adapter.addData(Food.alarm(i));
+            adapter.notifyDataSetChanged();
+        }
     }
 }

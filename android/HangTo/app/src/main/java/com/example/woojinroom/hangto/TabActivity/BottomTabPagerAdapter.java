@@ -27,9 +27,9 @@ public class BottomTabPagerAdapter extends FragmentPagerAdapter {
 
         fragments.clear();
         fragments.add(Tab1RecommandFragment.newInstance(0));
-        fragments.add(Tab2FeedsFragment.newInstance(1));
+        fragments.add(Tab4ExploreFragment.newInstance(1));
 //        fragments.add(Tab3StatisFragment.newInstance(2));
-        fragments.add(Tab4ExploreFragment.newInstance(3));
+        fragments.add(Tab2FeedsFragment.newInstance(3));
         fragments.add(Tab5MyPageFragment.newInstance(4));
     }
 

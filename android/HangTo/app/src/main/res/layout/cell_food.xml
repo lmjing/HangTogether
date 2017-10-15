@@ -3,13 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="18dp"
     android:background="@color/colorWhite">
 
- <TextView
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:textSize="24dp"
-     android:text="셀푸드입니다."/>
+ <!-- 필요없는 페이지 오류 방지용 -->
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.woojinroom.hangto.TabActivity.Tab1Recommand;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,18 +10,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.TabActivity.ParentFragment.TabParentFragment;
 import com.example.woojinroom.hangto.TabActivity.TabActivity;
+import com.example.woojinroom.hangto.TabActivity.TabActivity_;
+import com.example.woojinroom.hangto.searchActivity;
+import com.example.woojinroom.hangto.writeActivity;
 
 /**
  * Created by kksd0900 on 16. 10. 11..
  */
 public class Tab1RecommandFragment extends TabParentFragment {
     TabActivity activity;
+    ImageButton button;
+    ImageButton imageButton_search;
 
     public Tab1RecommandAdapter adapter;
     private RecyclerView recyclerView;
@@ -53,8 +61,8 @@ public class Tab1RecommandFragment extends TabParentFragment {
         final TabActivity tabActivity = (TabActivity) getActivity();
         this.activity = tabActivity;
 
-        //Toolbar cs_toolbar = (Toolbar)view.findViewById(R.id.cs_toolbar);
-        //activity.setSupportActionBar(cs_toolbar);
+        Toolbar cs_toolbar = (Toolbar)view.findViewById(R.id.cs_toolbar);
+        activity.setSupportActionBar(cs_toolbar);
         activity.getSupportActionBar().setTitle("LOGO");
 
         if (recyclerView == null) {
@@ -74,7 +82,7 @@ public class Tab1RecommandFragment extends TabParentFragment {
         }
         recyclerView.setAdapter(adapter);
 
-        //indicator = (LinearLayout)view.findViewById(R.id.indicator);
+       // indicator = (LinearLayout)view.findViewById(R.id.indicator);
         pullToRefresh = (SwipeRefreshLayout) view.findViewById(R.id.pull_to_refresh);
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -83,7 +91,21 @@ public class Tab1RecommandFragment extends TabParentFragment {
                 refresh();
             }
         });
+        button=(ImageButton)view.findViewById(R.id.button_write);
+        button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent posting_intent = new Intent(view.getContext(), writeActivity.class);
+                startActivity(posting_intent);
+            }
+        });
 
+        imageButton_search=(ImageButton)view.findViewById(R.id.imagebutton_search);
+        imageButton_search.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent search_intent = new Intent(view.getContext(),searchActivity.class);
+                startActivity(search_intent);
+            }
+        });
         connectRecommand();
     }
 
@@ -105,5 +127,8 @@ public class Tab1RecommandFragment extends TabParentFragment {
         for (int i=0; i<10; i++)
             adapter.addData(Food.mockFood(i));
         adapter.notifyDataSetChanged();
+    }
+    public void profile(Intent intent){
+        startActivity(intent);
     }
 }

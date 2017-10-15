@@ -15,7 +15,8 @@
         android:hint="여행 장소 입력"
         android:inputType="textMultiLine"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="64dp" />
 
     <EditText
         android:id="@+id/editText18"
@@ -27,7 +28,8 @@
         android:hint="여행 장소 입력"
         android:inputType="textMultiLine"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="64dp" />
 
     <EditText
         android:id="@+id/editText17"
@@ -39,7 +41,8 @@
         android:hint="여행 장소 입력"
         android:inputType="textMultiLine"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="64dp" />
 
     <TextView
         android:id="@+id/textView43"
@@ -50,30 +53,6 @@
         android:textSize="30dp"
         tools:layout_editor_absoluteY="437dp"
         tools:layout_editor_absoluteX="32dp" />
-
-    <TextView
-        android:id="@+id/textView44"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="482dp"
-        android:text="+"
-        android:textColor="#000000"
-        android:textSize="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText20"
-        android:layout_width="125dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="480dp"
-        android:ems="10"
-        android:hint="추가 입력"
-        android:inputType="textMultiLine"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView42"
@@ -95,7 +74,8 @@
         android:hint="종료"
         android:inputType="textMultiLine"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="174dp" />
 
     <EditText
         android:id="@+id/editText16"
@@ -107,7 +87,8 @@
         android:hint="여행 장소 입력"
         android:inputType="textMultiLine"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="64dp" />
 
     <TextView
         android:id="@+id/textView38"
@@ -119,7 +100,8 @@
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/textView37"
@@ -131,7 +113,8 @@
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/textView39"
@@ -143,7 +126,8 @@
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="148dp" />
 
     <TextView
         android:id="@+id/textView40"
@@ -155,7 +139,8 @@
         android:textColor="#000000"
         android:textSize="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="32dp" />
 
     <TextView
         android:id="@+id/textView41"
@@ -167,7 +152,8 @@
         android:textColor="#000000"
         android:textSize="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="32dp" />
 
     <TextView
         android:id="@+id/textView36"
@@ -180,7 +166,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="31dp"
         android:layout_marginLeft="75dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="75dp" />
 
     <EditText
         android:id="@+id/editText13"
@@ -192,7 +179,8 @@
         android:hint="친구들에게 하고싶은 말을 남겨주세요 :)"
         android:inputType="textMultiLine"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp" />
 
     <EditText
         android:id="@+id/editText14"
@@ -204,5 +192,18 @@
         android:hint="시작"
         android:inputType="textMultiLine"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:text="신청하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 </android.support.constraint.ConstraintLayout>

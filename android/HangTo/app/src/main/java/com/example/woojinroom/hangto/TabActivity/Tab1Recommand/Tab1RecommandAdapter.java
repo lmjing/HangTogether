@@ -1,16 +1,20 @@
 package com.example.woojinroom.hangto.TabActivity.Tab1Recommand;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.woojinroom.hangto.Model.Food;
 import com.example.woojinroom.hangto.R;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFood;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderFoodCategory;
 import com.example.woojinroom.hangto.ViewHolder.ViewHolderParent;
+import com.example.woojinroom.hangto.writingActivity;
+import com.example.woojinroom.hangto.profileActivity;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,7 @@ import java.util.ArrayList;
  * Created by kksd0900 on 16. 10. 11..
  */
 public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent> {
+
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_HEADER = 1;
 
@@ -50,9 +55,9 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
     }
 
     @Override
-    public ViewHolderParent onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolderParent onCreateViewHolder(final ViewGroup parent, int viewType) {
         if (viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_food, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_mainpage, parent, false);
             return new ViewHolderFood(v);
         } else if (viewType == TYPE_HEADER) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cell_food, parent, false);
@@ -73,8 +78,31 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
             ViewHolderFood itemViewHolder = (ViewHolderFood) holder;
             Food food = mDataset.get(position-1);
 
-//            itemViewHolder.cellFoodHeader.setVisibility(View.GONE);
- //           itemViewHolder.foodName.setText(food.name);
+           // itemViewHolder.list_mainpage.setVisibility(View.GONE);
+            itemViewHolder.imageView.setImageResource(R.drawable.test);
+            itemViewHolder.imageView.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Intent profile_intent = new Intent(view.getContext(), profileActivity.class);
+                    fragment.profile(profile_intent);
+                }
+            });
+            itemViewHolder.textId.setText(food.id);
+
+            itemViewHolder.textId.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Toast.makeText(view.getContext(),"ID 눌림",Toast.LENGTH_SHORT).show();
+                }
+            });
+            itemViewHolder.textContent.setText(food.content);
+            itemViewHolder.textContent.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Intent posting_intent = new Intent(view.getContext(), writingActivity.class);
+                    fragment.profile(posting_intent);
+                }
+            });
+            itemViewHolder.textTime.setText(food.time);
+
+
 
             // LOAD MORE
 //            if (position == mDataset.size()-1 && !fragment.endOfPage)
@@ -97,3 +125,4 @@ public class Tab1RecommandAdapter extends RecyclerView.Adapter<ViewHolderParent>
         return mDataset.size()+1;
     }
 }
+
